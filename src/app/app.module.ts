@@ -3,23 +3,34 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { ColabrateComponent } from './colabrate/colabrate.component';
-import { ConnectComponent } from './connect/connect.component';
+import { HomeComponent } from './components/home/home.component';
+import { ColabrateComponent } from './components/colabrate/colabrate.component';
+import { ConnectComponent } from './components/connect/connect.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatModuleModule } from './mat-module.module';
+import { MatModuleModule } from './shared/mat-module.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BotComponent } from './components/bot/bot.component';
+import { LoginComponent } from './components/login/login.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { SignupComponent } from './components/signup/signup.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ColabrateComponent,
-    ConnectComponent
+    ConnectComponent,
+    BotComponent,
+    LoginComponent,
+    PageNotFoundComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MatModuleModule,
+    FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule
   ],
   providers: [],

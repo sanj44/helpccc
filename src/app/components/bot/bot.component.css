@@ -1,0 +1,39 @@
+.botHelloMsg{
+    text-align: center;
+}
+.searchbar{
+    
+ display: flex;   
+ justify-content: center;
+ align-items: flex-end;
+ position: fixed;
+ bottom: 130px;
+    
+}
+.searchbarInput{
+    margin-left: 10px;
+    width: 240px;
+}
+.sendButton{
+    padding: 10px;
+border: none;
+background: none;
+margin-bottom: 15px;
+}
+.message{
+    border: 1px solid black;
+    padding: 10px;
+  border-radius: 25px;
+  width: 220px;
+}
+.botMessage{
+    float: left;
+}
+.userMessage{
+    float: right;
+    background-color: bisque;
+}
+.scrollMessage{
+    height: 40vh;
+  overflow-y: scroll;
+}

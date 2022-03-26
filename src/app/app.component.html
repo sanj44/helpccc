@@ -1,13 +1,36 @@
-
 <nav mat-tab-nav-bar >
-  
-     <a mat-tab-link routerLink="" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active">Care</a> &nbsp;
-     <a  mat-tab-link routerLink="Colobrate" routerLinkActive="active">Connect</a>
-     <a mat-tab-link routerLink="Connect" routerLinkActive="active">Colobrate</a>
-  <!-- <a mat-tab-link disabled>Disabled Link</a> -->
-</nav>
-  <router-outlet class="content"></router-outlet>
 
+  
+<div class="navButtons">
+  <div>
+    <a mat-tab-link routerLink="" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active">Care</a> &nbsp;
+    <a mat-tab-link routerLink="Connect" routerLinkActive="active">Connect</a>
+    <a mat-tab-link routerLink="Collaborate" routerLinkActive="active">Collaborate</a>
+  </div>
+
+  <div>
+    <a mat-tab-link (click)="toggleLogIn()" >
+      <span [ngStyle]="logInStatus?{'color': 'red'} : {}">
+        {{logInStatus?"Log Out":"Log In"}}
+      </span>
+      
+    </a>
+  </div>
+</div>
+  
+
+
+
+    <!-- <a mat-tab-link disabled>Disabled Link</a> -->
+</nav>
+{{logInStatus}}
+<router-outlet class="content"></router-outlet>
+
+<app-bot class="botPage" *ngIf="botHelp"></app-bot>
+
+<button class="botButton" (click)="showBotHelp()">
+  <img class="bot-icon" src="../assets/bot.png" alt="bot">
+</button>
 <footer>
-  @copyright 2020
+    @copyright 2020
 </footer>

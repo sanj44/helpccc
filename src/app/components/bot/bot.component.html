@@ -1,0 +1,27 @@
+<div class="botBox">
+    <h1 class="botHelloMsg">Hi this is you Bot</h1>
+    <div class="scrollMessage">
+
+    
+    <div  *ngFor="let msg of messageArray">
+        <p class="botMessage message" *ngIf="msg.from=='bot'">
+            {{msg.message}}
+        </p>
+        <p class="userMessage message" *ngIf="msg.from=='user'">
+            {{msg.message}}
+        </p>
+
+    </div>
+</div>
+    <div class="searchbar">
+    <mat-form-field class="searchbarInput" appearance="fill">
+        <mat-label>You query</mat-label>
+        <input matInput placeholder="Ex. i need Vacination" value="" [(ngModel)]="inputVal" (keyup.enter)="send(inputVal)">
+      </mat-form-field>
+    <button class="sendButton" (click)="send(inputVal)">
+        <span class="material-icons">
+            send
+            </span>
+    </button>
+</div>
+</div>

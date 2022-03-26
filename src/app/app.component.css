@@ -2,21 +2,49 @@ nav{
     padding: 10px;
     background-color: aquamarine;
     font-size: larger;
-    display: flex;
 }
 .content{
-    height: 80vh;
-    padding: 20px;
+    height: 100vh;
+}
+.navButtons{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.botPage{
+    z-index: 999;
+    position: fixed;
+    right: 40px;
+    bottom: 130px;
+    border: 1px solid black;
+    border-radius: 25px;
+    height: 60vh;
+    width: 300px;
+    background-color: white;
 }
 .active{
     color: rgb(44, 28, 7);
+    text-decoration: underline;
 }
 footer{
-    position: absolute;
-    background-color: aquamarine;
-    box-sizing: border-box;
+    position: fixed;
+
+    left: 0;
+    bottom: 0;
     width: 100%;
     padding: 10px;
-    bottom: 0;
-    transform: translateY(-100);
+    background-color: aquamarine;
+    color: white;
+    text-align: center;
+}
+.bot-icon{
+    position: fixed;
+    right: 20px;
+    bottom: 50px;
+    
+}
+.botButton{
+    padding: 0;
+border: none;
+background: none;
 }
