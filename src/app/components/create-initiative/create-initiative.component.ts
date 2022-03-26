@@ -2,7 +2,9 @@ import { ENTER, COMMA } from '@angular/cdk/keycodes';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { MatChipInputEvent } from '@angular/material/chips';
-import { Subject } from 'rxjs';
+import { Router } from '@angular/router';
+import { Crisis } from 'src/app/models/initiative';
+import { InitiativeService } from 'src/app/services/initiative.service';
 
 @Component({
   selector: 'app-create-initiative',
@@ -13,11 +15,9 @@ import { Subject } from 'rxjs';
 export class CreateInitiativeComponent implements OnInit {
 
   regform: FormGroup;
+  crisises: Crisis[];
   name = new FormControl(null,[Validators.required]);
-  crisisId =new FormControl(null,[Validators.required]);
-  crisisName =new FormControl(null,[Validators.required]);
-  crisisTag =new FormControl(null,[Validators.required]);
-  crisisDetails =new FormControl(null,[Validators.required]);
+  crisis =new FormControl(null,[Validators.required]);
   volunteersRequired = new FormControl(null,[Validators.required]);
   description = new FormControl(null,[Validators.required]);
   signedUpVlunteers = new FormControl(null,[Validators.required]);
@@ -26,15 +26,14 @@ export class CreateInitiativeComponent implements OnInit {
   crisisHashTags:String[]= [];
   addOnBlur = true;
   readonly separatorKeysCodes = [ENTER, COMMA] as const;
-  constructor(fb: FormBuilder) { 
+  constructor(fb: FormBuilder, private initiativeService: InitiativeService, private router: Router) { 
     this.regform = fb.group({
       name:this.name,
-      crisisId    :this.crisisId,
-      crisisName  :this.crisisName,
-      crisisDetails:this.crisisDetails,
+      // crisisId    :this.crisisId,
+      // crisisName  :this.crisisName,
+      // crisisDetails:this.crisisDetails,
       volunteersRequired:this.volunteersRequired,
       description:this.description,
-      signedUpVlunteers:this.signedUpVlunteers
     });
   }
   add(event: MatChipInputEvent): void {
@@ -65,20 +64,35 @@ export class CreateInitiativeComponent implements OnInit {
       this.HashTags.splice(index, 1);
     }
   }
-  submit(){
-    let {crisisId,crisisName,crisisDetails}=this.regform.value;
+
+  getCrisisById(id: string): Crisis {
+    for(let crisis of this.crisises){
+      if(crisis._id === id) {
+        return crisis;
+      }
+    }
+    return this.crisises[0];
+  }
+   submit(){
     let {name,volunteersRequired,
       description,
       signedUpVlunteers}=this.regform.value
-    let crisis={id:crisisId,name:crisisName,deatils:crisisDetails,tags:this.crisisHashTags};
-    let data={name,volunteersRequired,description,signedUpVlunteers,crisis,tags:this.HashTags};
+    let crisis=this.getCrisisById(this.crisis.value);
+    let data={name,volunteersRequired,description,signedUpVlunteers,crisis,tags:this.HashTags, userId: sessionStorage["user"]};
     console.log(data);
-    
+    this.initiativeService.createInitiative(data).subscribe( res => {
+      console.log(res);
+      this.router.navigate([""])
+    })    
   }
   reset(){
     this.regform.reset();
   }
   ngOnInit(): void {
+    this.initiativeService.getAllCrisis().subscribe( res => {
+      console.log(res);
+      this.crisises = res;
+    })
   }
 
 }

@@ -94,7 +94,7 @@
                                 {{getSubjectValue(subject.value)}}
                             </strong>
                                 <div class="form-fields">
-                                    <mat-form-field appearance="fill">
+                                    <!-- <mat-form-field appearance="fill">
                                         <mat-label>Choose specific Initative</mat-label>
                                         <mat-select [formControl]="volInitative">
                                             <mat-option *ngFor="let sub of initative" [value]="sub.value">
@@ -102,7 +102,7 @@
                                             </mat-option>
                                         </mat-select>
                                     </mat-form-field>
-                                    <br>
+                                    <br> -->
                                     <label>Gender : </label>
 
                                     <mat-radio-group aria-label="Select an option" [formControl]="gender1">
@@ -119,7 +119,7 @@
 
                                 </div>
                                 <button type="button" mat-button matStepperPrevious>Back</button>
-                                <button type="submit" mat-button matStepperNext [disabled]="!volInitative.valid">Sign up</button>
+                                <button type="submit" mat-button matStepperNext>Sign up</button>
                             </form>
                         </mat-step>
                     </div>

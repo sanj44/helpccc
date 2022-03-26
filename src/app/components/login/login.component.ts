@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
   password = new FormControl(null,[Validators.required]);
   loading: boolean=false;
   
-  constructor(fb: FormBuilder,private router:Router) {
+  constructor(fb: FormBuilder,private router:Router, private userService: UserService) {
     this.loginForm = fb.group({
       email:this.email,
       password: this.password,
@@ -28,19 +29,17 @@ export class LoginComponent implements OnInit {
      this.loading=true;
      if(this.loginForm.valid){
       console.log(this.loginForm);
-      sessionStorage["logInStatus"]=true;
-      setTimeout(() => {
+      this.userService.login(this.loginForm.value).subscribe( res => {
+        console.log(res);
+        sessionStorage["logInStatus"]=true;
+        sessionStorage["user"] = res.email;
         this.loading=false;
         this.router.navigate([""])
-      }, 1500);
+      })
      }
      else{
      this.loading=false;
-
      }
-    
-    
-    
   }
   reset(){
     this.loginForm.reset();

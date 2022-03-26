@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.initiativeService.fetchAllInitiatives().subscribe( res => {
+      console.log(res);      
       this.initiatives = res;
     });
   }

@@ -1,9 +1,7 @@
 .colorate-container {
     text-align: center;
-    padding: 50px 0 100px 0;
     /* border: 2px solid black; */
-    width: 50vw;
-    transform: translateX(50%);
+    width: 60vw;
 }
 
 .buttonBar {
@@ -13,11 +11,6 @@
 button {
     margin: 5px;
     width: 100px;
-}
-
-form {
-    padding: 20px 0 20px 0;
-    border: 2px solid black;
 }
 
 mat-form-field,
