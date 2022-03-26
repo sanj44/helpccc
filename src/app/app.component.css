@@ -1,0 +1,22 @@
+nav{
+    padding: 10px;
+    background-color: aquamarine;
+    font-size: larger;
+    display: flex;
+}
+.content{
+    height: 80vh;
+    padding: 20px;
+}
+.active{
+    color: rgb(44, 28, 7);
+}
+footer{
+    position: absolute;
+    background-color: aquamarine;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px;
+    bottom: 0;
+    transform: translateY(-100);
+}
