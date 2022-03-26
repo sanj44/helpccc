@@ -3,14 +3,12 @@ import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import {MatChipInputEvent} from '@angular/material/chips';
+import { InitiativeService } from 'src/app/services/initiative.service';
 
 interface Subject {
   value: string;
   viewValue: string;
 } 
-export interface hashTag {
-  name: string;
-}
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -38,7 +36,7 @@ export class SignupComponent implements OnInit {
   dob1= new FormControl(null);
   addOnBlur = true;
   readonly separatorKeysCodes = [ENTER, COMMA] as const;
-  HashTags:hashTag[]= [];
+  HashTags:string[]= [];
 
   subjects:Subject[] = [
     {value: 'subject0', viewValue: 'Organisation'},
@@ -52,7 +50,7 @@ export class SignupComponent implements OnInit {
   isLinear = false;
   initSubmitVal!: string;
   
-  constructor(fb: FormBuilder,private router:Router) {
+  constructor(fb: FormBuilder,private router:Router, private initiativeService: InitiativeService) {
     this.loginForm1 = fb.group({
       email:this.email,
       password: this.password,
@@ -81,7 +79,7 @@ export class SignupComponent implements OnInit {
 
     // Add our fruit
     if (value) {
-      this.HashTags.push({name: value});
+      this.HashTags.push(value);
       
     }
 
@@ -89,7 +87,7 @@ export class SignupComponent implements OnInit {
     event.chipInput!.clear();
   }
 
-  remove(val: hashTag): void {
+  remove(val: any): void {
     const index = this.HashTags.indexOf(val);
 
     if (index >= 0) {
@@ -111,8 +109,12 @@ export class SignupComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.initiativeService.getAllCrisis().subscribe( res => {
+      console.log(res);
+    })
   }
   submit(){
+    this.loading = true;
     console.log(this.getSubjectValue(this.loginForm2.value["subject"]))
     this.initSubmitVal=this.getSubjectValue(this.loginForm2.value["subject"])
     if(this.initSubmitVal=="Beneficiary"){
@@ -124,6 +126,17 @@ export class SignupComponent implements OnInit {
      else if(this.initSubmitVal=="Organisation"){
       console.log({...this.loginForm1.value,...this.loginForm2.value,...this.subject0.value});
      }
+     sessionStorage["logInStatus"]=true;
+     setTimeout(() => {
+      this.loading=false;
+      if(this.initSubmitVal=="Organisation"){
+      this.router.navigate(["CreateInitiative"])
+      }
+      else{
+      this.router.navigate(["login"])
+      }
+    }, 1500);
+
    
  }
  reset(){

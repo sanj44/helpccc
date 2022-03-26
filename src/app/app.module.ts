@@ -14,6 +14,7 @@ import { LoginComponent } from './components/login/login.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CreateInitiativeComponent } from './components/create-initiative/create-initiative.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { HttpClientModule } from '@angular/common/http';
     BotComponent,
     LoginComponent,
     PageNotFoundComponent,
-    SignupComponent
+    SignupComponent,
+    CreateInitiativeComponent
   ],
   imports: [
     BrowserModule,

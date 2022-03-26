@@ -10,6 +10,10 @@ import { Initiative } from '../models/initiative';
 export class InitiativeService {
   constructor(private http: HttpClient) { }
 
+  getAllCrisis(): Observable<any> {
+    return this.http.get(environment.backendUrl + `initiative/allCrisis`) as Observable<any>;
+  }
+
   addMeInInitiative(data: any): Observable<any> {
     console.log(data);    
     return this.http.post(environment.backendUrl + `initiative/addUserToInitiative`, data) as Observable<any>;
@@ -24,9 +28,7 @@ export class InitiativeService {
   }
 
   fetchAllInitiatives(): Observable<Initiative[]> {
-    console.log('fetch');
-    
-    return this.http.get(environment.backendUrl + `initiative/fetchInitiativess`) as Observable<Initiative[]>;
+    return this.http.get(environment.backendUrl + `initiative/fetchInitiatives`) as Observable<Initiative[]>;
   }
 
   createInitiative(data: any) {

@@ -1,0 +1,36 @@
+.colorate-container {
+    text-align: center;
+    padding: 50px 0 100px 0;
+    /* border: 2px solid black; */
+    width: 50vw;
+    transform: translateX(50%);
+}
+
+.buttonBar {
+    margin-top: 20px;
+}
+
+button {
+    margin: 5px;
+    width: 100px;
+}
+
+form {
+    padding: 20px 0 20px 0;
+    border: 2px solid black;
+}
+
+mat-form-field,
+mat-slider {
+    width: 80%;
+}
+
+mat-expansion-panel {
+    width: 80%;
+    margin-left: 5vw;
+}
+
+.radio {
+    display: flex;
+    justify-content: space-evenly;
+}

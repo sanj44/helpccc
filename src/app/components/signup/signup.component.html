@@ -1,5 +1,8 @@
 <div class="fullPage login">
     <mat-card class="example-card">
+        <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+        <br>
+
         <mat-card-header class="center">
             <mat-card-title>Sign Up / Register</mat-card-title>
         </mat-card-header>
@@ -132,7 +135,7 @@
                                         <mat-label>My Requirement</mat-label>
                                         <mat-chip-list #chipList aria-label="HashTags selection">
                                             <mat-chip *ngFor="let ht of HashTags" (removed)="remove(ht)">
-                                                {{ht.name}}
+                                                {{ht}}
                                                 <button matChipRemove>
                                           <mat-icon>cancel</mat-icon>
                                         </button>
@@ -152,7 +155,7 @@
             </div>
         </mat-card-content>
 
-        <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+        <!-- <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar> -->
     </mat-card>
 
 

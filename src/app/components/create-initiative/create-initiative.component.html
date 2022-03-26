@@ -1,0 +1,106 @@
+<div class="colorate-container">
+    <h3>
+        <strong>Create Initiative</strong>
+    </h3>
+    <form (ngSubmit)="submit()" [formGroup]="regform">
+
+        <div class="form-fields">
+            <mat-form-field appearance="fill">
+                <mat-label>Name</mat-label>
+                <input matInput [formControl]="name">
+            </mat-form-field>
+
+        </div>
+
+        <div class="form-fields crisis">
+            <mat-accordion>
+                <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                    <mat-expansion-panel-header>
+
+                        <mat-panel-title>
+                            Crisis
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            Click to {{panelOpenState ? 'Close' : 'Expand'}}
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+
+                    <div class="form-fields">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Crisis Id</mat-label>
+                            <input matInput [formControl]="crisisId">
+                        </mat-form-field>
+                    </div>
+                    <div class="form-fields">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Crisis Name</mat-label>
+                            <input matInput [formControl]="crisisName">
+                        </mat-form-field>
+                    </div>
+
+                    <div class="form-fields">
+                        <mat-form-field class="example-chip-list" appearance="fill">
+                            <mat-label>Tags</mat-label>
+                            <mat-chip-list #chipList1 aria-label="HashTags selection">
+                                <mat-chip *ngFor="let ht of crisisHashTags" (removed)="removeForCrisis(ht)">
+                                    {{ht}}
+                                    <button matChipRemove>
+                              <mat-icon>cancel</mat-icon>
+                            </button>
+                                </mat-chip>
+                                <input placeholder="New Value..." [matChipInputFor]="chipList1" [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="addForCrisis($event)">
+                            </mat-chip-list>
+                        </mat-form-field>
+                    </div>
+                    <div class="form-fields">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Crisis details</mat-label>
+                            <input matInput [formControl]="crisisDetails">
+                        </mat-form-field>
+                    </div>
+
+                </mat-expansion-panel>
+            </mat-accordion>
+            <br>
+        </div>
+        <div class="form-fields">
+            <label id="example-name-label" class="example-name-label">Number Of volunteers Required for the Initiative : </label>
+            <label class="example-value-label">{{volunteersRequired.value ? volunteersRequired.value:0}}</label>
+            <mat-slider [formControl]="volunteersRequired" thumbLabel tickInterval="1000" step="1" min="0" max="1000" aria-label="units"></mat-slider>
+        </div>
+
+        <div class="form-fields">
+            <mat-form-field appearance="fill">
+                <mat-label>Description</mat-label>
+                <input matInput [formControl]="description">
+            </mat-form-field>
+        </div>
+        <div class="form-fields">
+            <mat-form-field appearance="fill">
+                <mat-label>Signed Up Volunteers Id</mat-label>
+                <input matInput [formControl]="signedUpVlunteers">
+            </mat-form-field>
+        </div>
+        <div class="form-fields">
+            <mat-form-field class="example-chip-list" appearance="fill">
+                <mat-label>Tags</mat-label>
+                <mat-chip-list #chipList aria-label="HashTags selection">
+                    <mat-chip *ngFor="let ht of HashTags" (removed)="remove(ht)">
+                        {{ht}}
+                        <button matChipRemove>
+                      <mat-icon>cancel</mat-icon>
+                    </button>
+                    </mat-chip>
+                    <input placeholder="New Value..." [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="add($event)">
+                </mat-chip-list>
+            </mat-form-field>
+        </div>
+
+
+        <div class="buttonBar">
+            <button mat-raised-button color="primary" [disabled]="!regform.valid" type="submit">Submit</button>
+            <button mat-raised-button type="reset" (click)="reset()">Reset</button>
+
+        </div>
+    </form>
+</div>

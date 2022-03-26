@@ -5,7 +5,8 @@ export class Initiative {
     volunteersRequired: number;
     description?: string;
     metaData: Metadata;
-    signedUpVlunteers: string[];
+    signedUpVolunteers: string[];
+    tags: string[]
 }
 
 export class Metadata {

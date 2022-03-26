@@ -11,7 +11,7 @@
         <div>
             <a mat-tab-link (click)="toggleLogIn()">
                 <span [ngStyle]="logInStatus?{'color': 'red'} : {}">
-        {{logInStatus?"Log Out":"Log In"}}
+                    {{" "+ (logInStatus?"Log Out":"Log In")}}
       </span>
 
             </a>
