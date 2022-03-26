@@ -1,1 +1,159 @@
-<p>signup works!</p>
+<div class="fullPage login">
+    <mat-card class="example-card">
+        <mat-card-header class="center">
+            <mat-card-title>Sign Up / Register</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="colorate-container">
+                <mat-stepper class="example-card" [linear]="isLinear" #stepper>
+                    <mat-step class="example-card" [stepControl]="loginForm1" label="Fill out your Basic details">
+
+                        <form [formGroup]="loginForm1">
+                            <div class="form-fields">
+
+                                <mat-form-field class="fullname" appearance="fill">
+                                    <mat-label>Full Name</mat-label>
+                                    <input matInput [formControl]="fullName">
+                                </mat-form-field>
+                            </div>
+                            <div class="form-fields">
+
+                                <mat-form-field class="email" appearance="fill">
+                                    <mat-label>Email</mat-label>
+                                    <input matInput [formControl]="email">
+                                    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="form-fields">
+                                <mat-form-field appearance="fill">
+                                    <mat-label>Password</mat-label>
+                                    <input matInput [type]="hide ? 'password' : 'text'" [formControl]="password">
+                                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                              </button>
+                                </mat-form-field>
+                            </div>
+                            <div class="form-fields">
+                                <mat-form-field appearance="fill">
+                                    <mat-label>Phone number</mat-label>
+                                    <mat-icon matSuffix>phone</mat-icon>
+                                    <input matInput [formControl]="phone">
+                                </mat-form-field>
+                            </div>
+
+                            <button [disabled]="!loginForm1.valid" mat-button matStepperNext>Next</button>
+                            <!-- <div class="buttonBar">
+                        <button mat-raised-button color="primary" type="submit">Sign Up</button>&nbsp;
+                        <button mat-raised-button type="reset" (click)="reset()">Reset</button>
+                        
+                        
+                    </div> -->
+                        </form>
+                    </mat-step>
+                    <mat-step [stepControl]="loginForm2" label="Sign Up As">
+                        <form [formGroup]="loginForm2">
+                            <div class="form-fields">
+                                <mat-form-field appearance="fill">
+                                    <mat-label>Category</mat-label>
+                                    <mat-select [formControl]="subject">
+                                        <mat-option *ngFor="let sub of subjects" [value]="sub.value">
+                                            {{sub.viewValue}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+
+                            </div>
+                            <button mat-button matStepperPrevious>Back</button>
+                            <button mat-button matStepperNext [disabled]="!loginForm2.valid">Next</button>
+                        </form>
+                    </mat-step>
+
+                    <div *ngIf="subject.value=='subject0'">
+                        <mat-step [stepControl]="subject0" label="Additional Details">
+                            <form (ngSubmit)="submit()" [formGroup]="subject0">
+                                <div class="form-fields">
+                                    <strong>
+                                    {{getSubjectValue(subject.value)}}
+                                </strong>
+
+                                    <!-- <button> Create Initative</button> -->
+                                </div>
+                                <br><br><br>
+                                <button type="button" mat-button matStepperPrevious>Back</button>
+                                <button type="submit" mat-button matStepperNext [disabled]="!loginForm2.valid">Sign Up & Create Initative</button>
+                            </form>
+                        </mat-step>
+                    </div>
+                    <div *ngIf="subject.value=='subject1'">
+                        <mat-step [stepControl]="subject1" label="Additional Details">
+                            <form (ngSubmit)="submit()" [formGroup]="subject1">
+                                <strong>
+                                {{getSubjectValue(subject.value)}}
+                            </strong>
+                                <div class="form-fields">
+                                    <mat-form-field appearance="fill">
+                                        <mat-label>Choose specific Initative</mat-label>
+                                        <mat-select [formControl]="volInitative">
+                                            <mat-option *ngFor="let sub of initative" [value]="sub.value">
+                                                {{sub.viewValue}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                    <br>
+                                    <label>Gender : </label>
+
+                                    <mat-radio-group aria-label="Select an option" [formControl]="gender1">
+                                        <mat-radio-button value="male">Male</mat-radio-button>
+                                        &nbsp;
+                                        <mat-radio-button value="female">Female</mat-radio-button>
+                                    </mat-radio-group>
+                                    <mat-form-field appearance="fill">
+                                        <mat-label>Enter your date of birth</mat-label>
+                                        <input matInput [matDatepicker]="picker" [formControl]="dob1">
+                                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                        <mat-datepicker #picker></mat-datepicker>
+                                    </mat-form-field>
+
+                                </div>
+                                <button type="button" mat-button matStepperPrevious>Back</button>
+                                <button type="submit" mat-button matStepperNext [disabled]="!volInitative.valid">Sign up</button>
+                            </form>
+                        </mat-step>
+                    </div>
+                    <div *ngIf="subject.value=='subject2'">
+                        <mat-step [stepControl]="subject2" label="Additional Details">
+                            <form (ngSubmit)="submit()" [formGroup]="subject0">
+
+                                <strong>
+                                {{getSubjectValue(subject.value)}}
+                            </strong>
+                                <div class="form-fields">
+                                    <mat-form-field class="example-chip-list" appearance="fill">
+                                        <mat-label>My Requirement</mat-label>
+                                        <mat-chip-list #chipList aria-label="HashTags selection">
+                                            <mat-chip *ngFor="let ht of HashTags" (removed)="remove(ht)">
+                                                {{ht.name}}
+                                                <button matChipRemove>
+                                          <mat-icon>cancel</mat-icon>
+                                        </button>
+                                            </mat-chip>
+                                            <input placeholder="New Value..." [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="add($event)">
+                                        </mat-chip-list>
+                                    </mat-form-field><br>
+                                    <mat-checkbox [formControl]="IwantTo">I want to Volunteer as well</mat-checkbox>
+                                </div>
+                                <button type="button" mat-button matStepperPrevious>Back</button>
+                                <button type="submit" mat-button matStepperNext [disabled]="!loginForm2.valid">Sign Up</button>
+                            </form>
+                        </mat-step>
+                    </div>
+
+                </mat-stepper>
+            </div>
+        </mat-card-content>
+
+        <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+    </mat-card>
+
+
+</div>

@@ -23,8 +23,10 @@ export class InitiativeService {
     return this.http.get(environment.backendUrl + `initiative/getInitiative`+id) as Observable<Initiative>;
   }
 
-  fetchAllInitiatives(id: string): Observable<Initiative[]> {
-    return this.http.get(environment.backendUrl + `initiative/fetchInitiativess`+id) as Observable<Initiative[]>;
+  fetchAllInitiatives(): Observable<Initiative[]> {
+    console.log('fetch');
+    
+    return this.http.get(environment.backendUrl + `initiative/fetchInitiativess`) as Observable<Initiative[]>;
   }
 
   createInitiative(data: any) {

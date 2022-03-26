@@ -1,32 +1,35 @@
-<nav mat-tab-nav-bar >
+<nav mat-tab-nav-bar>
 
-  
-<div class="navButtons">
-  <div>
-    <a mat-tab-link routerLink="" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active">Care</a> &nbsp;
-    <a mat-tab-link routerLink="Connect" routerLinkActive="active">Connect</a>
-    <a mat-tab-link routerLink="Collaborate" routerLinkActive="active">Collaborate</a>
-  </div>
 
-  <div>
-    <a mat-tab-link (click)="toggleLogIn()" >
-      <span [ngStyle]="logInStatus?{'color': 'red'} : {}">
+    <div class="navButtons">
+        <div>
+            <a mat-tab-link routerLink="" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active">Care</a> &nbsp;
+            <a mat-tab-link routerLink="Connect" routerLinkActive="active">Connect</a>
+            <a mat-tab-link routerLink="Collaborate" routerLinkActive="active">Collaborate</a>
+        </div>
+
+        <div>
+            <a mat-tab-link (click)="toggleLogIn()">
+                <span [ngStyle]="logInStatus?{'color': 'red'} : {}">
         {{logInStatus?"Log Out":"Log In"}}
       </span>
-      
-    </a>
-  </div>
-</div>
-  
+
+            </a>
+        </div>
+    </div>
+
 
 
 
     <!-- <a mat-tab-link disabled>Disabled Link</a> -->
 </nav>
-{{logInStatus}}
-<router-outlet class="content"></router-outlet>
-
-<app-bot class="botPage" *ngIf="botHelp"></app-bot>
+<!-- {{logInStatus}} -->
+<div class="content">
+    <router-outlet></router-outlet>
+</div>
+<div class="botPage" *ngIf="botHelp">
+    <app-bot></app-bot>
+</div>
 
 <button class="botButton" (click)="showBotHelp()">
   <img class="bot-icon" src="../assets/bot.png" alt="bot">
