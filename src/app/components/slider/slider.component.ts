@@ -11,7 +11,7 @@ export class SliderComponent implements OnInit {
       event:' Event 1',
       eventLocation:'Bangalore',
       eventDescription:'In bangalore, first event is going to happen. Please be careful about it',
-      img: 'https://picsum.photos/900/500?random&t=1',
+      img: 'https://images.unsplash.com/photo-1584118624012-df056829fbd0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Y292aWR8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
       eventStartDate: new Date('2019/05/20'),
       eventEndingDate: new Date('2019/05/24')
     },
@@ -19,7 +19,7 @@ export class SliderComponent implements OnInit {
       event:' Event 2',
       eventLocation:'Dubai',
       eventDescription:'Dubai is another place to host so,e, first event is going to happen. Please be careful about it',
-      img: 'https://picsum.photos/900/500?random&t=3',
+      img: 'https://images.unsplash.com/photo-1584931423298-c576fda54bd2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGNvdmlkfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
       eventStartDate: new Date('2019/07/28'),
       eventEndingDate: new Date('2019/07/30')
     },
@@ -27,7 +27,7 @@ export class SliderComponent implements OnInit {
       event:' Event 3',
       eventLocation:'New York',
       eventDescription:'NewYork sits on top of event hosting',
-      img: 'https://picsum.photos/900/500?random&t=4',
+      img: 'https://images.unsplash.com/photo-1605289982774-9a6fef564df8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y292aWR8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
       eventStartDate: new Date('2020/05/20'),
       eventEndingDate: new Date('2020/05/24')
     },
@@ -35,39 +35,11 @@ export class SliderComponent implements OnInit {
       event:' Event 4',
       eventLocation:'Singapore',
       eventDescription:'Singapore is another great hosting city',
-      img: 'https://picsum.photos/900/500?random&t=6',
+      img: 'https://images.unsplash.com/photo-1579208575657-c595a05383b7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fGhlbHB8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
       eventStartDate: new Date('2018/05/20'),
       eventEndingDate: new Date('2018/05/24')
-    },
-    {
-      event:' Event 5',
-      eventLocation:'Berlin',
-      eventDescription: 'Berlin is best place to hang on',
-      img: 'https://picsum.photos/900/500?random&t=7',
-      eventStartDate: new Date('2017/07/10'),
-      eventEndingDate: new Date('2017/08/14')
-    },
-    {
-      event:' Event 6',
-      eventLocation:'Mumbai',
-      eventDescription:'Mumbai is hub of startups',
-      img: 'https://picsum.photos/900/500?random&t=8',
-      eventStartDate: new Date(),
-      eventEndingDate: new Date()
-    },
-    {
-      event:' Event 7',
-      eventLocation:'Barcelona',
-      eventDescription:'Barcelona is another good city',
-      img: 'https://picsum.photos/900/500?random&t=6',
-      eventStartDate: new Date(),
-      eventEndingDate: new Date()
-    },
-  ]
-
-  upcoming_events =  this.event_list.filter( event => event.eventStartDate > new Date());
-  past_events = this.event_list.filter(event => event.eventEndingDate < new Date());
-  current_events =  this.event_list.filter( event => (event.eventStartDate >= new Date() && (event.eventEndingDate <= new Date())))
+    }
+  ];
   constructor() {
   }
 

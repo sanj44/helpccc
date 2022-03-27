@@ -1,5 +1,5 @@
 <ngb-carousel [showNavigationIndicators]="false" [pauseOnHover]="false" [showNavigationArrows]="false" *ngIf="event_list">
-    <ng-template ngbSlide *ngFor="let event of past_events">
+    <ng-template ngbSlide *ngFor="let event of event_list">
     <img [src]="event.img" alt="Random slide">
     </ng-template>
 </ngb-carousel>
