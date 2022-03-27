@@ -1,0 +1,9 @@
+<div *ngIf="sessionVars['userType'] == 'Organisation'">
+    Organisation dashboard
+</div>
+<div *ngIf="sessionVars['userType'] == 'Volunteer'">
+    Volunteer dashboard
+</div>
+<div *ngIf="sessionVars['userType'] == 'Beneficiary'">
+    Beneficiary dashboard
+</div>
