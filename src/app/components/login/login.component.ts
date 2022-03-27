@@ -35,6 +35,8 @@ export class LoginComponent implements OnInit {
         sessionStorage["user"] = res.email;
         sessionStorage["username"] = res.fullName;
         sessionStorage["userType"] = res.userType;
+        sessionStorage["tags"] = JSON.stringify(res.tags);
+        
         this.loading=false;
         this.router.navigate([""])
       })
