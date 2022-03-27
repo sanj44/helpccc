@@ -17,6 +17,7 @@ export class AppComponent implements OnInit,DoCheck{
   radius: number=20;
   color: string;
   logInStatus:boolean=false;
+  username: any;
   constructor(private router:Router){
     if(sessionStorage["logInStatus"]==="true"){
     this.logInStatus=true
@@ -27,10 +28,12 @@ export class AppComponent implements OnInit,DoCheck{
   }
   ngDoCheck(): void {
     if(sessionStorage["logInStatus"]==="true"){
-      this.logInStatus=true
+      this.logInStatus=true;
+      this.username=sessionStorage["username"]
       }
       else{
         this.logInStatus=false
+        this.username=sessionStorage["username"]
       }
   }
   ngOnInit(): void {
@@ -42,7 +45,7 @@ export class AppComponent implements OnInit,DoCheck{
       sessionStorage.clear();
     }
     else{
-      this.logInStatus=true;
+      //this.logInStatus=true;
     }
     this.router.navigate(["login"])
     sessionStorage["logInStatus"]=this.logInStatus;

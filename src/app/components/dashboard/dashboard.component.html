@@ -8,7 +8,40 @@
         </mat-card-header>
         <mat-card-content>
             <div *ngIf="sessionVars['userType'] == 'Organisation'">
-                Organisation dashboard show all initiatives created by user - fetchMyInitiatives organisation show Users with relevant tags
+                <div class="form-fields">
+                    <mat-form-field class="example-chip-list" appearance="fill">
+                        <mat-label>Details</mat-label>
+                        <mat-chip-list #chipList aria-label="HashTags selection">
+                            <mat-chip *ngFor="let ht of details" >
+                                {{ht}}
+                                <button matChipRemove>
+                          <mat-icon>cancel</mat-icon>
+                        </button>
+                            </mat-chip>
+                            <input placeholder="New Value..." [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur" >
+                            <!-- (matChipInputTokenEnd)="add($event)"
+                            > -->
+                        </mat-chip-list>
+                    </mat-form-field><br>
+                    
+                </div>
+                <div class="form-fields">
+                    <mat-form-field class="example-chip-list" appearance="fill">
+                        <mat-label>Tags</mat-label>
+                        <mat-chip-list #chipList aria-label="HashTags selection">
+                            <mat-chip *ngFor="let ht of HashTags" >
+                                {{ht}}
+                                <button matChipRemove>
+                          <mat-icon>cancel</mat-icon>
+                        </button>
+                            </mat-chip>
+                            <input placeholder="New Value..." [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur" >
+                            <!-- (matChipInputTokenEnd)="add($event)"
+                            > -->
+                        </mat-chip-list>
+                    </mat-form-field><br>
+                    
+                </div>
             </div>
             <div *ngIf="sessionVars['userType'] == 'Volunteer'">
                 vol dash add tags

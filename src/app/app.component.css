@@ -3,6 +3,16 @@ nav {
     background-color: #045d5d;
     font-size: larger;
     
+    
+}
+.user{
+    color: white;
+   padding-right: 10px;
+    text-align: center
+}
+.rightMenu{
+    /* display: flex;
+    align-items: center; */
 }
 
 nav a {

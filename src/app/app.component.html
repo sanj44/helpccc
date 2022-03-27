@@ -17,7 +17,12 @@
             [matRippleColor]="color" routerLink="dashboard" routerLinkActive="active">Dashboard</a>
         </div>
 
-        <div>
+        <div class="rightMenu">
+            <span class="user">
+                <!-- <small>Loged in User</small> -->
+                <small>{{((username?username +" ":'' )| uppercase) + (username?"'s Profile":"")}}</small>
+                
+            </span>
             <a  matRipple
             [matRippleCentered]="centered"
             [matRippleDisabled]="disabled"
@@ -25,7 +30,7 @@
             [matRippleRadius]="radius"
             [matRippleColor]="color" (click)="toggleLogIn()">
                 <span>
-                    {{" "+ (logInStatus?"Log Out":"Log In")}}
+                    {{(logInStatus?"Log Out":"Log In")}}
       </span>
 
             </a>
