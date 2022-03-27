@@ -50,3 +50,12 @@ body {
     display: flex;
     justify-content: center;
 }
+
+.visually-hidden{
+    display: none;
+}
+
+img[alt='Random slide']{
+    width: 100%!important;
+    height: 350px!important;
+}

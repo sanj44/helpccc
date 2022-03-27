@@ -14,6 +14,8 @@ import { SignupComponent } from './components/signup/signup.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CreateInitiativeComponent } from './components/create-initiative/create-initiative.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { SliderComponent } from './components/slider/slider.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     PageNotFoundComponent,
     SignupComponent,
     CreateInitiativeComponent,
-    DashboardComponent
+    DashboardComponent,
+    SliderComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

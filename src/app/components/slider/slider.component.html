@@ -1,0 +1,6 @@
+<ngb-carousel [interval]="100000000" [pauseOnHover]="false" [showNavigationArrows]="false" *ngIf="event_list">
+    <ng-template ngbSlide *ngFor="let event of past_events">
+    <img [src]="event.img" alt="Random slide">
+    </ng-template>
+</ngb-carousel>
+     
