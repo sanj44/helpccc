@@ -33,9 +33,10 @@ export class AppComponent implements OnInit,DoCheck{
   toggleLogIn(){
     if(this.logInStatus){
       this.logInStatus=false;
+      sessionStorage.clear();
     }
     else{
-      //this.logInStatus=true;
+      this.logInStatus=true;
     }
     this.router.navigate(["login"])
     sessionStorage["logInStatus"]=this.logInStatus;

@@ -8,7 +8,7 @@ nav {
     margin-top: -20px;
     height: 85vh;
     min-height: max-content;
-    background-color: rgba(196, 125, 33, 0.089);
+    /* background-color: rgba(196, 125, 33, 0.089); */
 }
 
 .navButtons {

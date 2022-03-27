@@ -121,6 +121,7 @@ export class SignupComponent implements OnInit {
       console.log(dataToSubmit);
       this.userService.register(dataToSubmit).subscribe(res => {
         console.log(res);
+        this.router.navigate(["login"]);
       })
 
     }
@@ -129,6 +130,7 @@ export class SignupComponent implements OnInit {
       console.log(dataToSubmit);
       this.userService.register(dataToSubmit).subscribe(res => {
         console.log(res);
+        this.router.navigate(["login"]);
       })
     }
     else if (this.initSubmitVal == "Organisation") {
@@ -136,20 +138,9 @@ export class SignupComponent implements OnInit {
       console.log(dataToSubmit);
       this.userService.register(dataToSubmit).subscribe(res => {
         console.log(res);
+        this.router.navigate(["login"]);
       })
     }
-    sessionStorage["logInStatus"] = true;
-    setTimeout(() => {
-      this.loading = false;
-      if (this.initSubmitVal == "Organisation") {
-        this.router.navigate(["CreateInitiative"])
-      }
-      else {
-        this.router.navigate(["login"])
-      }
-    }, 1500);
-
-
   }
   reset() {
     this.loginForm1.reset();

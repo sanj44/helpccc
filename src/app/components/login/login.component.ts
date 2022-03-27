@@ -33,6 +33,8 @@ export class LoginComponent implements OnInit {
         console.log(res);
         sessionStorage["logInStatus"]=true;
         sessionStorage["user"] = res.email;
+        sessionStorage["username"] = res.fullName;
+        sessionStorage["userType"] = res.userType;
         this.loading=false;
         this.router.navigate([""])
       })
