@@ -15,7 +15,6 @@ body {
 }
 
 .fullPage {
-    margin-top: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -49,4 +48,13 @@ body {
     width: 100%;
     display: flex;
     justify-content: center;
+}
+
+.visually-hidden{
+    display: none;
+}
+
+img[alt='Random slide']{
+    width: 100%!important;
+    height: 350px!important;
 }

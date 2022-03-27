@@ -20,7 +20,6 @@ nav a {
 }
 
 .content {
-    margin-top: -20px;
     height: calc(100% - 109px);
     min-height: max-content;
     /* background-color: rgba(196, 125, 33, 0.089); */
