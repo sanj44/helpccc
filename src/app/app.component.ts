@@ -10,6 +10,12 @@ export class AppComponent implements OnInit,DoCheck{
   
   title = 'help';
   botHelp=false;
+  centered = true;
+  disabled = false;
+  unbounded = false;
+
+  radius: number=20;
+  color: string;
   logInStatus:boolean=false;
   constructor(private router:Router){
     if(sessionStorage["logInStatus"]==="true"){

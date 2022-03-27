@@ -1,14 +1,29 @@
-<nav mat-tab-nav-bar>
+<nav >
 
 
     <div class="navButtons">
         <div>
-            <a mat-tab-link routerLink="" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active">Home</a> &nbsp;
-            <a mat-tab-link routerLink="dashboard" routerLinkActive="active">Dashboard</a>
+            <a  matRipple
+            [matRippleCentered]="centered"
+            [matRippleDisabled]="disabled"
+            [matRippleUnbounded]="unbounded"
+            [matRippleRadius]="radius"
+            [matRippleColor]="color" routerLink="" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active">Home</a> &nbsp;
+            <a  matRipple
+            [matRippleCentered]="centered"
+            [matRippleDisabled]="disabled"
+            [matRippleUnbounded]="unbounded"
+            [matRippleRadius]="radius"
+            [matRippleColor]="color" routerLink="dashboard" routerLinkActive="active">Dashboard</a>
         </div>
 
         <div>
-            <a mat-tab-link (click)="toggleLogIn()">
+            <a  matRipple
+            [matRippleCentered]="centered"
+            [matRippleDisabled]="disabled"
+            [matRippleUnbounded]="unbounded"
+            [matRippleRadius]="radius"
+            [matRippleColor]="color" (click)="toggleLogIn()">
                 <span>
                     {{" "+ (logInStatus?"Log Out":"Log In")}}
       </span>
