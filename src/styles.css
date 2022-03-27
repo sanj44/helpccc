@@ -58,3 +58,13 @@ img[alt='Random slide']{
     width: 100%!important;
     height: 350px!important;
 }
+
+button.mat-focus-indicator.mat-raised-button.mat-button-base.mat-primary {
+    background: #015d5c;
+}
+a{
+color: #015d5c!important;
+}
+.mat-step-icon.mat-step-icon-state-number.mat-step-icon-selected {
+    background: #015d5c!important;
+}
