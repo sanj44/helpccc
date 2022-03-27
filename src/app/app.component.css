@@ -2,10 +2,10 @@ nav {
     padding: 10px;
     background-color: #045d5d;
     font-size: larger;
-    
 }
+
 nav a {
-    color:#fff!important;
+    color: #fff!important;
 }
 
 .content {
@@ -33,7 +33,6 @@ nav a {
 }
 
 .active {
-    
     text-decoration: underline;
 }
 
