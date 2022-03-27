@@ -1,11 +1,11 @@
 nav {
     padding: 10px;
-    background-color: #017e7e;
+    background-color: #045d5d;
     font-size: larger;
     
 }
 nav a {
-    color:white!important;
+    color:#fff!important;
 }
 
 .content {
@@ -30,11 +30,10 @@ nav a {
     border-radius: 25px;
     height: 60vh;
     width: 300px;
-    background-color: white;
 }
 
 .active {
-    color: rgb(44, 28, 7);
+    
     text-decoration: underline;
 }
 
@@ -44,7 +43,7 @@ footer {
     bottom: 0;
     width: 100%;
     padding: 10px;
-    background-color: #017e7e;
+    background-color: #045d5d;
     color: #ffffff;
     text-align: center;
 }
