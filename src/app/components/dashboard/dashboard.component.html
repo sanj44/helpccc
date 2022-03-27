@@ -3,7 +3,7 @@
         <mat-card-header class="center">
             <mat-card-title>Welcome {{sessionVars['username']}}</mat-card-title>
             <div class="row">
-                <h3>Email: {{sessionVars['user']}}</h3>
+                <h3>&nbsp;Email: {{sessionVars['user']}}</h3>
             </div>
         </mat-card-header>
         <mat-card-content>
@@ -44,7 +44,24 @@
                 </div>
             </div>
             <div *ngIf="sessionVars['userType'] == 'Volunteer'">
-                vol dash add tags
+                <div class="form-fields">
+                    <mat-form-field class="example-chip-list" appearance="fill">
+                        <mat-label>Tags</mat-label>
+                        <mat-chip-list #chipList aria-label="HashTags selection">
+                            <mat-chip *ngFor="let ht of tagsArr" >
+                                {{ht}}
+                                <button matChipRemove>
+                          <mat-icon>cancel</mat-icon>
+                        </button>
+                            </mat-chip>
+                            <input placeholder="New Value..." [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur" >
+                            <!-- (matChipInputTokenEnd)="add($event)"
+                            > -->
+                        </mat-chip-list>
+                    </mat-form-field><br>
+                    
+                </div>
+                
             </div>
             <div *ngIf="sessionVars['userType'] == 'Beneficiary'">
 

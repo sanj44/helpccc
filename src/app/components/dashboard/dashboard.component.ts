@@ -19,6 +19,7 @@ export class DashboardComponent implements OnInit {
   readonly separatorKeysCodes = [ENTER, COMMA] as const;
   HashTags: any[] = [];
   details: any[] = [];
+  tagsArr: any;
   constructor(fb: FormBuilder,private userService:UserService,private initiative:InitiativeService) {
     this.volForm = fb.group({
       requirement:this.requirement
@@ -39,11 +40,11 @@ export class DashboardComponent implements OnInit {
       console.log(this.HashTags)
       }
     )
-    let tagsArr=JSON.parse(this.sessionVars['tags']);
+    this.tagsArr=JSON.parse(this.sessionVars['tags']);
     
-    this.userService.updateTags({email:this.sessionVars['user'],tags:tagsArr}).subscribe(
-      data=>console.log(data)
-    )
+    // this.userService.updateTags({email:this.sessionVars['user'],tags:tagsArr}).subscribe(
+    //   data=>console.log(data)
+    // )
     // {email:"as",tags:["adv"]}
    
   }
