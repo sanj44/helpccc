@@ -1,6 +1,7 @@
 import { ENTER, COMMA } from '@angular/cdk/keycodes';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatChipInputEvent } from '@angular/material/chips';
 import { InitiativeService } from 'src/app/services/initiative.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -48,7 +49,26 @@ export class DashboardComponent implements OnInit {
     // {email:"as",tags:["adv"]}
    
   }
+  add(event: MatChipInputEvent): void {
+    const value = (event.value || '').trim();
 
+    // Add our fruit
+    if (value) {
+      this.tagsArr.push(value);
+
+    }
+
+    // Clear the input value
+    event.chipInput!.clear();
+  }
+
+  remove(val: any): void {
+    const index = this.tagsArr.indexOf(val);
+
+    if (index >= 0) {
+      this.tagsArr.splice(index, 1);
+    }
+  }
   submit(){
     if(this.volForm.valid){
      console.log(this.volForm);

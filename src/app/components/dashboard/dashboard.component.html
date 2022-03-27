@@ -54,12 +54,11 @@
                           <mat-icon>cancel</mat-icon>
                         </button>
                             </mat-chip>
-                            <input placeholder="New Value..." [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur" >
-                            <!-- (matChipInputTokenEnd)="add($event)"
-                            > -->
+                            <input placeholder="New Value..." [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="add($event)">
+                            
                         </mat-chip-list>
                     </mat-form-field><br>
-                    
+                    <button mat-raised-button color="primary">Update</button>
                 </div>
                 
             </div>
