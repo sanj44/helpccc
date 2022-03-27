@@ -72,3 +72,7 @@ color: #015d5c!important;
 .mat-step-icon.mat-step-icon-state-edit {
     background: #015d5c!important;
 }
+
+mat-card.mat-card.mat-focus-indicator.example-card {
+    margin: 5px 10px!important;
+}
