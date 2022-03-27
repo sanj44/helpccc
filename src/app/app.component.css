@@ -1,7 +1,11 @@
 nav {
     padding: 10px;
-    background-color: aquamarine;
+    background-color: #017e7e;
     font-size: larger;
+    
+}
+nav a {
+    color:white!important;
 }
 
 .content {
@@ -40,8 +44,8 @@ footer {
     bottom: 0;
     width: 100%;
     padding: 10px;
-    background-color: aquamarine;
-    color: rgb(0, 0, 0);
+    background-color: #017e7e;
+    color: #ffffff;
     text-align: center;
 }
 
